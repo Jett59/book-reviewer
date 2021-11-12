@@ -1,17 +1,24 @@
 #include <iostream>
+#include <chrono>
 #include <memory>
 #include <string>
+#include <random>
 #include <vector>
 #include <fstream>
 
 using std::cerr;
 using std::cout;
+using std::default_random_engine;
 using std::endl;
 using std::ifstream;
 using std::ios;
 using std::string;
+using std::uniform_int_distribution;
 using std::unique_ptr;
 using std::vector;
+using std::chrono::duration_cast;
+using std::chrono::high_resolution_clock;
+using std::chrono::nanoseconds;
 
 vector<string> grabWords(string input) {
     vector<string> result;
@@ -22,10 +29,10 @@ vector<string> grabWords(string input) {
           if (temp.length() > 0) {
             result.push_back(temp);
             temp = string();
-          }else {
+          }
+      }else {
             temp += c;
           }
-      }
     } 
     if (temp.length() > 0) {
       result.push_back(temp);
@@ -45,7 +52,16 @@ int main() {
   namesStream.seekg(0, ios::beg);
   unique_ptr<char> namesData(new char[fileSize]);
   namesStream.read(namesData.get(), fileSize);
-  cout.write(namesData.get(), fileSize);
   namesStream.close();
+  vector<string> names = grabWords(string(namesData.get()));
+  default_random_engine generator;
+  generator.seed(
+      duration_cast<nanoseconds>(
+          high_resolution_clock::now().time_since_epoch())
+          .count());
+  uniform_int_distribution<int> distribution(0,names.size() - 1);
+  string firstName = names[distribution(generator)];
+  string lastName = names[distribution(generator)];
+  cout << firstName << " " << lastName << endl;
   return 0;
 }
