@@ -40,6 +40,15 @@ vector<string> grabWords(string input) {
     return result;
 }
 
+vector<string> grabWords(ifstream& input) {
+   input.seekg(0, ios::end);
+  int fileSize = input.tellg();
+  input.seekg(0, ios::beg);
+  unique_ptr<char> data(new char[fileSize + 1]);
+  input.read(data.get(), fileSize);
+  data.get()[fileSize] = '\0';
+  return grabWords(string(data.get()));
+ }
 int main() { 
   cout << "Book reviewer" << endl;
   ifstream namesStream("names.txt");
@@ -47,13 +56,8 @@ int main() {
     cerr << "Error while opening file handle" << endl;
     return -1;
   }
-  namesStream.seekg(0, ios::end);
-  int fileSize = namesStream.tellg();
-  namesStream.seekg(0, ios::beg);
-  unique_ptr<char> namesData(new char[fileSize]);
-  namesStream.read(namesData.get(), fileSize);
+  vector<string> names = grabWords(namesStream);
   namesStream.close();
-  vector<string> names = grabWords(string(namesData.get()));
   default_random_engine generator;
   generator.seed(
       duration_cast<nanoseconds>(
