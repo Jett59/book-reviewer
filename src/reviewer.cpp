@@ -58,14 +58,20 @@ int main() {
   }
   vector<string> names = grabWords(namesStream);
   namesStream.close();
+  ifstream nounsStream("nouns.txt");
+  vector<string> nouns = grabWords(nounsStream);
+  nounsStream.close();
   default_random_engine generator;
   generator.seed(
       duration_cast<nanoseconds>(
           high_resolution_clock::now().time_since_epoch())
           .count());
-  uniform_int_distribution<int> distribution(0,names.size() - 1);
-  string firstName = names[distribution(generator)];
-  string lastName = names[distribution(generator)];
-  cout << firstName << " " << lastName << endl;
+  uniform_int_distribution<int> nameDistribution(0,names.size() - 1);
+  string firstName = names[nameDistribution(generator)];
+  string lastName = names[nameDistribution(generator)];
+  uniform_int_distribution<int> nounDistribution(0, nouns.size() - 1);
+  string noun1 = nouns[nounDistribution(generator)];
+  string noun2 = nouns[nounDistribution(generator)];
+  cout << firstName << " " << lastName << " and the " << noun1 << " of " << noun2 << endl;
   return 0;
 }
