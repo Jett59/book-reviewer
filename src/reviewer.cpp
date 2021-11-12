@@ -50,7 +50,6 @@ vector<string> grabWords(ifstream& input) {
   return grabWords(string(data.get()));
  }
 int main() { 
-  cout << "Book reviewer" << endl;
   ifstream namesStream("names.txt");
   if(!namesStream) { 
     cerr << "Error while opening file handle" << endl;
