@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <random>
 #include <vector>
@@ -13,6 +14,7 @@ using std::endl;
 using std::ifstream;
 using std::ios;
 using std::string;
+using std::stringstream;
 using std::uniform_int_distribution;
 using std::unique_ptr;
 using std::vector;
@@ -20,12 +22,42 @@ using std::chrono::duration_cast;
 using std::chrono::high_resolution_clock;
 using std::chrono::nanoseconds;
 
+vector<string> grabLines(string input) {
+  vector<string> result;
+  string temp;
+  for (int i = 0; i < input.length(); i ++) {
+    char c = input[i];
+    if (c == '\n' || c == '\r') {
+      if (temp.length() > 0) {
+        result.push_back(temp);
+        temp = string();
+      }
+    }else {
+      temp += c;
+    }
+  }
+  if (temp.length() > 0) {
+    result.push_back(temp);
+  }
+  return result;
+   }
+
+vector<string> grabLines(ifstream& input) {
+  input.seekg(0, ios::end);
+  int fileSize = input.tellg();
+  input.seekg(0, ios::beg);
+  unique_ptr<char> data(new char[fileSize + 1]);
+  input.read(data.get(), fileSize);
+  data.get()[fileSize] = '\0';
+  return grabLines(string(data.get()));  
+}
+
 vector<string> grabWords(string input) {
     vector<string> result;
     string temp;
     for (int i = 0; i < input.length(); i ++) {
       char c = input[i];
-      if (c == ' ' || c == '\t' || c == '\n') {
+      if (c == ' ' || c == '\t' || c == '\n' || c == '\r') {
           if (temp.length() > 0) {
             result.push_back(temp);
             temp = string();
@@ -72,5 +104,19 @@ int main() {
   string noun1 = nouns[nounDistribution(generator)];
   string noun2 = nouns[nounDistribution(generator)];
   cout << firstName << " " << lastName << " and the " << noun1 << " of " << noun2 << endl;
+  int stars = 5 - nounDistribution(generator) % 5;
+  cout << "Rated " << stars << " stars" << endl;
+  stringstream reviewFileName;
+  reviewFileName << stars << "stars.txt";
+  ifstream reviewInput(reviewFileName.str());
+  vector<string> reviewTerms = grabLines(reviewInput);
+  reviewInput.close();
+  uniform_int_distribution<int> reviewTermDistribution(0, reviewTerms.size() - 1);
+  string term1 = reviewTerms[reviewTermDistribution(generator)];
+  string term2;
+  do {
+     term2 = reviewTerms[reviewTermDistribution(generator)];
+  } while (term1 == term2);
+  cout << term1 << " " << term2 << endl;
   return 0;
 }
