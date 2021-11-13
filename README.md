@@ -5,33 +5,33 @@ Names randomly generated from [Behind the Name](https://www.behindthename.com/ra
 List of nouns from [The Great Noun List](http://www.desiquintans.com/nounlist).
 ### Sample output
 Here is a list of observed results of running the program:
-McAdams Kollen and the hypothermia of shingle
+Blae Brody and the handgun of responsibility
+Rated 1 stars
+Complete waste of money. Sueing the shop for this!ÕÕÕÕÕ
+Leokadia Ghasabyan and the sector of buggy
+Rated 5 stars
+Totally worth $10 at the corner book shop. My new favorite!
+Spyridoula Tachibana and the hardhat of coral
+Rated 1 stars
+I expected more. Giving this a 1 because I can't give it a 0!
+GhasabyanÕÕÕÕÕÕÕÕÕÕÕÕÕÕ Deepak and the secretary of bungalow
+Rated 5 stars
+WOW! Totally worth $10 at the corner book shop.
+McAdams Tachibana and the excuse of hubcap
+Rated 1 stars
+I expected more. Complete waste of money.
+Cyrillus Linn√©a and the aftershave of mortgage
+Rated 5 stars
+Totally worth $10 at the corner book shop. You haven't lived if you haven't read this!
+Leokadia Ezekiel and the horseradish of founder
+Rated 2 stars
+I took it back to the shop. They said that there was no refund. Plot jumped around a bit too much. Confuzing.
+Ervans Agnelli and the cardigan of ruffle
+Rated 4 stars
+Interesting plot. Looking forward to the sequel.
+Mphatso Spyridoula and the tolerance of thickness
+Rated 5 stars
+Totally worth $10 at the corner book shop. WOW!
+Brody Deepak and the syndicate of episode
 Rated 3 stars
-Fairly basic language. Made me think a bit.
-Chopshop Vacek and the influence of energy
-Rated 5 stars
-Totally worth $10 at the corner book shop. Very enlightening on modern issues.
-Ulf Rong and the beast of luck
-Rated 5 stars
-Totally worth $10 at the corner book shop. Very enlightening on modern issues.
-Kollen Yosuke and the interface of menopause
-Rated 2 stars
-Don't recommend this book. I took it back to the shop. They said that there was no refund.
-Kollen McAdams and the carbohydrate of goodnight
-Rated 1 stars
-Giving this a 1 because I can't give it a 0! Sueing the shop for this!
-Johns Konstancja and the sake of circumstance
-Rated 4 stars
-Recommend this book. Kept me reading right to the end.
-Adalbert Nishiyama and the controversy of budget
-Rated 2 stars
-I took it back to the shop. They said that there was no refund. Don't recommend this book.
-Mphatso Johns and the motel of correspondent
-Rated 1 stars
-Terrible plot. Complete waste of money.
-Grania Nuadha and the resource of zebrafish
-Rated 1 stars
-Sueing the shop for this! Complete waste of money.
-Vacek Mallt and the prose of shootdown
-Rated 4 stars
-Recommend this book. Looking forward to the sequel.
+Fairly basic language. Liked it.
