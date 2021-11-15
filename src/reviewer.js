@@ -11,11 +11,19 @@ function randomInt(bound) {
     return Math.floor(Math.random() * bound);
 }
 
+let names = {};
+let nouns = {};
+
+async function init() {
+    names = await readWords('names.txt');
+    nouns = await readWords('nouns.txt');
+}
+
+init();
+
 async function generateReview(output) {
-    const names = await readWords('names.txt');
     let name1 = names[randomInt(names.length - 1)];
     let name2 = names[randomInt(names.length - 1)];
-    const nouns = await readWords('nouns.txt');
     let noun1 = nouns[randomInt((await nouns).length - 1)];
     let noun2 = nouns[randomInt((await nouns).length - 1)];
     let stars = randomInt(5) + 1;
