@@ -18,5 +18,12 @@ async function generateReview(output) {
     const nouns = await readWords('nouns.txt');
     let noun1 = nouns[randomInt((await nouns).length - 1)];
     let noun2 = nouns[randomInt((await nouns).length - 1)];
-    output.innerHTML = name1 + ' ' + name2 + ' and the ' + noun1 + ' of ' + noun2;
+    let stars = randomInt(5) + 1;
+    const reviewTerms = await readWords(stars + 'stars.txt');
+    let reviewTerm1 = reviewTerms[randomInt(reviewTerms.length - 1)];
+    let reviewTerm2 = reviewTerms[randomInt(reviewTerms.length - 1)];
+    output.innerHTML = '<h2>' + name1 + ' ' + name2 + ' and the ' + noun1 + ' of ' + noun2 + '<br/>'
+        + 'Rated ' + stars + ' star' + (stars != 1 ? 's' : '') + '</h2>'
+        + 'Review:<br/>'
+        + reviewTerm1 + ' ' + reviewTerm2;
 }
