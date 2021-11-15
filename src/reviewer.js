@@ -8,7 +8,7 @@ async function readWords(path) {
 }
 
 function randomInt(bound) {
-    return Math.round(Math.random() * bound);
+    return Math.floor(Math.random() * bound);
 }
 
 async function generateReview(output) {
@@ -24,6 +24,6 @@ async function generateReview(output) {
     let reviewTerm2 = reviewTerms[randomInt(reviewTerms.length - 1)];
     output.innerHTML = '<h2>' + name1 + ' ' + name2 + ' and the ' + noun1 + ' of ' + noun2 + '<br/>'
         + 'Rated ' + stars + ' star' + (stars != 1 ? 's' : '') + '</h2>'
-        + 'Review:<br/>'
+        + 'Reviews (1):<br/>'
         + reviewTerm1 + ' ' + reviewTerm2;
 }
